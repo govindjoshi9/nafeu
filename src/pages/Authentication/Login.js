@@ -39,17 +39,17 @@ const Login = props => {
     enableReinitialize: true,
 
     initialValues: {
-      email: "admin@themesbrand.com" || '',
-      password: "123456" || '',
+      userId: "8497049" || "",
+      password: "Check@123" || "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Please Enter Your Email"),
+      userId: Yup.string().required("Please Enter Your Email"),
       password: Yup.string().required("Please Enter Your Password"),
     }),
-    onSubmit: (values) => {
-      dispatch(loginUser(values, props.history));
-    }
-  });
+    onSubmit: values => {
+      dispatch(loginUser(values, props.history))
+    },
+  })
 
   const { error } = useSelector(state => ({
     error: state.Login.error,
@@ -142,20 +142,20 @@ const Login = props => {
                       <div className="mb-3">
                         <Label className="form-label">Email</Label>
                         <Input
-                          name="email"
+                          name="userId"
                           className="form-control"
-                          placeholder="Enter email"
-                          type="email"
+                          placeholder="Enter userId"
+                          type="userId"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.email || ""}
-                          invalid={
-                            validation.touched.email && validation.errors.email ? true : false
-                          }
+                          value={validation.values.userId || ""}
+                          // invalid={
+                          //   validation.touched.email && validation.errors.email ? true : false
+                          // }
                         />
-                        {validation.touched.email && validation.errors.email ? (
+                        {/* {validation.touched.email && validation.errors.email ? (
                           <FormFeedback type="invalid">{validation.errors.email}</FormFeedback>
-                        ) : null}
+                        ) : null} */}
                       </div>
 
                       <div className="mb-3">

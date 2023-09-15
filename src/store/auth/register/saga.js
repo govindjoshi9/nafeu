@@ -23,11 +23,16 @@ function* registerUser({ payload: { user } }) {
       const response = yield call(
         fireBaseBackend.registerUser,
         user.email,
-        user.password
+        user.password,
+        user.username,
+        user.cPassword,
+        user.SponcerID,
+        user.country,
+        user.contact
       )
       yield put(registerUserSuccessful(response))
     } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
-      const response = yield call(postJwtRegister, "/post-jwt-register", user)
+      const response = yield call(postJwtRegister, "/auth/register", user)
       yield put(registerUserSuccessful(response))
     } else if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
       const response = yield call(postFakeRegister, user)

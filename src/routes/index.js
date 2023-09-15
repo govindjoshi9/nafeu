@@ -169,12 +169,53 @@ import ContactsGrid from "../pages/Contacts/contacts-grid";
 import ContactsList from "../pages/Contacts/ContactList/contacts-list";
 import ContactsProfile from "../pages/Contacts/ContactsProfile/contacts-profile";
 
+///trade
+import Trade from "../pages/Trade/Trade"
+import TradeSummary from "../pages/Trade/TradeSummary"
+
+
+// team
+import MyTeam from "pages/MyTeam/MyTeam";
+import MyDirect from "pages/MyTeam/MyDirect";
+import MyLevel from "pages/MyTeam/MyLevel";
+
+///Bonus
+import DividentBonus from "pages/Bonus/DividentBonus";
+import DirectBonus from "pages/Bonus/DirectBonus";
+import DirectLevelBonus from "pages/Bonus/DirectLevelBonus";
+import LevelBonus from "pages/Bonus/LevelBonus";
+import MonthlyBonus from "pages/Bonus/MonthlyBonus";
+import BoosterBonus from "pages/Bonus/BoosterBonus";
+import BoosterLevelBonus from "pages/Bonus/BoosterLevelBonus";
+import AutoPool from "pages/Bonus/AutoPool";
+
+///Withdraw Pages 
+
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: Dashboard },
   { path: "/dashboard-saas", component: DashboardSaas },
   { path: "/dashboard-crypto", component: DashboardCrypto },
   { path: "/blog", component: Blog },
+
+  ///Teade Route
+  { path: "/trade", component: Trade },
+  { path: "/tradeSummary", component: TradeSummary },
+
+  //team
+  { path: "/mydirect", component: MyDirect },
+  { path: "/myteam", component: MyTeam },
+  { path: "/mylevel", component: MyLevel },
+
+  //bonus
+  { path: "/dividentBonus", component: DividentBonus },
+  { path: "/directBonus", component: DirectBonus },
+  { path: "/directLevelBonus", component: DirectLevelBonus },
+  { path: "/LevelIncome", component: LevelBonus },
+  { path: "/MonthlyIncome", component: MonthlyBonus },
+  { path: "/BoosterBonus", component: BoosterBonus },
+  { path: "/BoosterLevel", component: BoosterLevelBonus },
+  { path: "/AutoPool", component: AutoPool },
 
   //Crypto
   { path: "/crypto-wallet", component: CryptoWallet },
@@ -313,7 +354,7 @@ const authProtectedRoutes = [
   // this route should be at the end of all other routes
   // eslint-disable-next-line react/display-name
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },
-];
+]
 
 const publicRoutes = [
   { path: "/logout", component: Logout },

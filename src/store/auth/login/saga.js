@@ -19,20 +19,20 @@ function* loginUser({ payload: { user, history } }) {
     if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
       const response = yield call(
         fireBaseBackend.loginUser,
-        user.email,
+        user.userId,
         user.password
       );
       yield put(loginSuccess(response));
     } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
       const response = yield call(postJwtLogin, {
-        email: user.email,
+        userId: user.userId,
         password: user.password,
       });
       localStorage.setItem("authUser", JSON.stringify(response));
       yield put(loginSuccess(response));
     } else if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
       const response = yield call(postFakeLogin, {
-        email: user.email,
+        userId: user.userId,
         password: user.password,
       });
       localStorage.setItem("authUser", JSON.stringify(response));

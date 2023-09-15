@@ -66,11 +66,11 @@ const fakeBackend = () => {
     });
   });
 
-  mock.onPost("/post-fake-login").reply(config => {
+  mock.onPost("/login").reply(config => {
     const user = JSON.parse(config["data"]);
     const validUser = users.filter(
-      usr => usr.email === user.email && usr.password === user.password
-    );
+      usr => usr.userId === user.userId && usr.password === user.password
+    )
 
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -95,7 +95,7 @@ const fakeBackend = () => {
     });
   });
 
-  mock.onPost("/post-jwt-register").reply(config => {
+  mock.onPost("auth/register").reply(config => {
     const user = JSON.parse(config["data"]);
     users.push(user);
 
@@ -106,18 +106,17 @@ const fakeBackend = () => {
     });
   });
 
-  mock.onPost("/post-jwt-login").reply(config => {
+  mock.onPost("auth/login").reply(config => {
     const user = JSON.parse(config["data"]);
     const validUser = users.filter(
-      usr => usr.email === user.email && usr.password === user.password
-    );
+      usr => usr.userId === user.userId && usr.password === user.password
+    )
 
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (validUser["length"] === 1) {
           // You have to generate AccessToken by jwt. but this is fakeBackend so, right now its dummy
           const token = accessToken;
-
           // JWT AccessToken
           const tokenObj = { accessToken: token }; // Token Obj
           const validUserObj = { ...validUser[0], ...tokenObj }; // validUser Obj
