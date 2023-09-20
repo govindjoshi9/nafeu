@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
+import React, { Fragment } from "react"
+import PropTypes from "prop-types"
 import {
   useTable,
   useGlobalFilter,
@@ -8,9 +8,9 @@ import {
   useFilters,
   useExpanded,
   usePagination,
-} from "react-table";
-import { Table, Row, Col, Button, Input } from "reactstrap";
-import { Filter, DefaultColumnFilter } from "./filters";
+} from "react-table"
+import { Table, Row, Col, Button, Input } from "reactstrap"
+import { Filter, DefaultColumnFilter } from "./filters"
 
 // Define a default UI for filtering
 function GlobalFilter({
@@ -18,11 +18,11 @@ function GlobalFilter({
   globalFilter,
   setGlobalFilter,
 }) {
-  const count = preGlobalFilteredRows.length;
-  const [value, setValue] = React.useState(globalFilter);
+  const count = preGlobalFilteredRows.length
+  const [value, setValue] = React.useState(globalFilter)
   const onChange = useAsyncDebounce(value => {
-    setGlobalFilter(value || undefined);
-  }, 200);
+    setGlobalFilter(value || undefined)
+  }, 200)
 
   return (
     <Col sm={4}>
@@ -34,13 +34,13 @@ function GlobalFilter({
             </span>
             <input
               onChange={e => {
-                setValue(e.target.value);
-                onChange(e.target.value);
+                setValue(e.target.value)
+                onChange(e.target.value)
               }}
               id="search-bar-0"
               type="text"
               className="form-control"
-              placeholder={`${count} records...`}
+              placeholder={`${count} search...`}
               value={value || ""}
             />
           </label>
@@ -48,75 +48,75 @@ function GlobalFilter({
         </div>
       </div>
     </Col>
-  );
+  )
 }
 
-    const TableContainer = ({
+const TableContainer = ({
+  columns,
+  data,
+  isGlobalFilter,
+  isAddOptions,
+  isAddUserList,
+  handleOrderClicks,
+  handleUserClick,
+  handleCustomerClick,
+  isAddCustList,
+  customPageSize,
+  className,
+  customPageSizeOptions,
+}) => {
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    page,
+    prepareRow,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    state,
+    preGlobalFilteredRows,
+    setGlobalFilter,
+    state: { pageIndex, pageSize },
+  } = useTable(
+    {
       columns,
       data,
-      isGlobalFilter,
-      isAddOptions,
-      isAddUserList,
-      handleOrderClicks,
-      handleUserClick,
-      handleCustomerClick,
-      isAddCustList,
-      customPageSize,
-      className,
-      customPageSizeOptions
-    }) => {
-      const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        page,
-        prepareRow,
-        canPreviousPage,
-        canNextPage,
-        pageOptions,
-        pageCount,
-        gotoPage,
-        nextPage,
-        previousPage,
-        setPageSize,
-        state,
-        preGlobalFilteredRows,
-        setGlobalFilter,
-        state: { pageIndex, pageSize },
-      } = useTable(
-        {
-          columns,
-          data,
-          defaultColumn: { Filter: DefaultColumnFilter },
-          initialState: { 
-            pageIndex: 0, 
-            pageSize: customPageSize,
-            sortBy: [
-              {
-                desc: true,
-              },
-            ],
+      defaultColumn: { Filter: DefaultColumnFilter },
+      initialState: {
+        pageIndex: 0,
+        pageSize: customPageSize,
+        sortBy: [
+          {
+            desc: true,
           },
-        },
+        ],
+      },
+    },
     useGlobalFilter,
     useFilters,
     useSortBy,
     useExpanded,
     usePagination
-  );
+  )
 
   const generateSortingIndicator = column => {
-    return column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : "";
-  };
+    return column.isSorted ? (column.isSortedDesc ? " 🔽" : " 🔼") : ""
+  }
 
   const onChangeInSelect = event => {
-    setPageSize(Number(event.target.value));
-  };
+    setPageSize(Number(event.target.value))
+  }
 
   const onChangeInInput = event => {
-    const page = event.target.value ? Number(event.target.value) - 1 : 0;
-    gotoPage(page);
-  };
+    const page = event.target.value ? Number(event.target.value) - 1 : 0
+    gotoPage(page)
+  }
   return (
     <Fragment>
       <Row className="mb-2">
@@ -128,7 +128,7 @@ function GlobalFilter({
           >
             {[10, 20, 30, 40, 50].map(pageSize => (
               <option key={pageSize} value={pageSize}>
-                Show {pageSize}
+                Show{pageSize}
               </option>
             ))}
           </select>
@@ -140,21 +140,7 @@ function GlobalFilter({
             setGlobalFilter={setGlobalFilter}
           />
         )}
-        {isAddOptions && (
-          <Col sm="7">
-            <div className="text-sm-end">
-              <Button
-                type="button"
-                color="success"
-                className="btn-rounded  mb-2 me-2"
-                onClick={handleOrderClicks}
-              >
-                <i className="mdi mdi-plus me-1" />
-                Add New Order
-              </Button>
-            </div>
-          </Col>
-        )}
+
         {isAddUserList && (
           <Col sm="7">
             <div className="text-sm-end">
@@ -198,7 +184,11 @@ function GlobalFilter({
                       {column.render("Header")}
                       {generateSortingIndicator(column)}
                     </div>
+                    {/* 
+                    
                     <Filter column={column} />
+
+                     */}
                   </th>
                 ))}
               </tr>
@@ -207,7 +197,7 @@ function GlobalFilter({
 
           <tbody {...getTableBodyProps()}>
             {page.map(row => {
-              prepareRow(row);
+              prepareRow(row)
               return (
                 <Fragment key={row.getRowProps().key}>
                   <tr>
@@ -216,11 +206,11 @@ function GlobalFilter({
                         <td key={cell.id} {...cell.getCellProps()}>
                           {cell.render("Cell")}
                         </td>
-                      );
+                      )
                     })}
                   </tr>
                 </Fragment>
-              );
+              )
             })}
           </tbody>
         </Table>
@@ -278,11 +268,11 @@ function GlobalFilter({
         </Col>
       </Row>
     </Fragment>
-  );
-};
+  )
+}
 
 TableContainer.propTypes = {
   preGlobalFilteredRows: PropTypes.any,
-};
+}
 
-export default TableContainer;
+export default TableContainer

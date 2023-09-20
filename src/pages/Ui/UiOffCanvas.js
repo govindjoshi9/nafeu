@@ -20,7 +20,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiDrawer = () => {
 
     //meta title
-    document.title = "Drawer | Skote - React Admin & Dashboard Template";
+    document.title = "Drawer | Nafeu - React Admin & Dashboard Template";
 
     const [open, setOpen] = useState(false);
     const [isTop, setIsTop] = useState(false);

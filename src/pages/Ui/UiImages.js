@@ -26,7 +26,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const UiImages = () => {
 
   //meta title
-  document.title = "Images | Skote - React Admin & Dashboard Template";
+  document.title = "Images | Nafeu - React Admin & Dashboard Template";
 
   return (
     <React.Fragment>
@@ -47,7 +47,7 @@ const UiImages = () => {
                     <Col md={6}>
                       <img
                         className="rounded ms-2"
-                        alt="Skote"
+                        alt="Nafeu"
                         width="200"
                         src={img4}
                       />
@@ -56,7 +56,7 @@ const UiImages = () => {
                       <div className="mt-4 mt-md-0">
                         <img
                           className="rounded-circle avatar-xl"
-                          alt="Skote"
+                          alt="Nafeu"
                           src={avatar4}
                         />
                       </div>
@@ -76,7 +76,7 @@ const UiImages = () => {
                     <Col md={6}>
                       <img
                         className="img-thumbnail"
-                        alt="Skote"
+                        alt="Nafeu"
                         width="200"
                         src={img3}
                       />
@@ -85,7 +85,7 @@ const UiImages = () => {
                       <div className="mt-4 mt-md-0">
                         <img
                           className="img-thumbnail rounded-circle avatar-xl"
-                          alt="Skote"
+                          alt="Nafeu"
                           src={avatar3}
                         />
                       </div>
@@ -98,7 +98,7 @@ const UiImages = () => {
             <Col lg={6}>
               <Card>
                 <CardBody>
-                  <CardTitle>Skotes</CardTitle>
+                  <CardTitle>Nafeus</CardTitle>
                   <CardSubtitle className="mb-3">
                     Images in Bootstrap are made responsive with{" "}
                     <code className="highlighter-rouge">.img-fluid</code>.{" "}
@@ -107,7 +107,7 @@ const UiImages = () => {
                     are applied to the image so that it scales with the parent
                     element.
                   </CardSubtitle>
-                  <CardImg className="img-fluid" src={img2} alt="Skote" />
+                  <CardImg className="img-fluid" src={img2} alt="Nafeu" />
                 </CardBody>
               </Card>
             </Col>
@@ -124,7 +124,7 @@ const UiImages = () => {
                         <Col lg={4}>
                           <CardImg
                             src={avatar3}
-                            alt="SkoteSkote"
+                            alt="NafeuNafeu"
                             className="rounded avatar-sm"
                           />
                           <CardText className="mt-2 mb-lg-0">
@@ -134,7 +134,7 @@ const UiImages = () => {
                         <Col lg={4}>
                           <CardImg
                             src={avatar4}
-                            alt="Skote"
+                            alt="Nafeu"
                             className="rounded avatar-md"
                           />
                           <CardText className="mt-2  mb-lg-0">
@@ -144,7 +144,7 @@ const UiImages = () => {
                         <Col lg={4}>
                           <CardImg
                             src={avatar5}
-                            alt="Skote"
+                            alt="Nafeu"
                             className="rounded avatar-lg"
                           />
                           <CardText className="mt-2 mb-lg-0">
@@ -158,7 +158,7 @@ const UiImages = () => {
                         <Col lg={4}>
                           <CardImg
                             src={avatar3}
-                            alt="Skote"
+                            alt="Nafeu"
                             className="rounded-circle avatar-sm"
                           />
                           <CardText className="mt-2 mb-lg-0">
@@ -178,7 +178,7 @@ const UiImages = () => {
                         <Col lg={4}>
                           <CardImg
                             src={avatar5}
-                            alt="Skote"
+                            alt="Nafeu"
                             className="rounded-circle avatar-lg"
                           />
                           <CardText className="mt-2 mb-lg-0">

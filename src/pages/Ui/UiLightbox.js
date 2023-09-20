@@ -40,7 +40,7 @@ const imageZoom = [img3, img7];
 const UiLightbox = () => {
 
   //meta title
-  document.title = "Lightbox | Skote - React Admin & Dashboard Template";
+  document.title = "Lightbox | Nafeu - React Admin & Dashboard Template";
 
   const [photoIndex, setphotoIndex] = useState(0);
   const [isFits, setisFits] = useState(false);
@@ -135,7 +135,7 @@ const UiLightbox = () => {
                             setisFits(true);
                           }}
                           className="img-fluid"
-                          alt="Skote"
+                          alt="Nafeu"
                           src={img2}
                           width="145"
                         />

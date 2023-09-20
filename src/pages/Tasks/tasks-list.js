@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from "react-redux"
 
 const TasksList = props => {
   //meta title
-  document.title = "Task List | Skote - React Admin & Dashboard Template"
+  document.title = "Task List | Nafeu - React Admin & Dashboard Template"
 
   const dispatch = useDispatch()
 

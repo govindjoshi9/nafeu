@@ -17,7 +17,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const UiAlert = () => {
   //meta title
-  document.title = "Alert | Skote - React Admin & Dashboard Template";
+  document.title = "Alert | Nafeu - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">

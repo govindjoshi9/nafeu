@@ -7,7 +7,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 const EmailAlertTemplte = props => {
    //meta title
-   document.title="Alert Email | Skote - React Admin & Dashboard Template";
+   document.title="Alert Email | Nafeu - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">
@@ -26,7 +26,7 @@ const EmailAlertTemplte = props => {
                   backgroundColor: "#f6f6f6",
                   margin: "0",
                 }}
-                bgcolor="#f6f6f6"
+                // bgcolor="#f6f6f6"
               >
                 <tbody>
                   <tr
@@ -308,7 +308,7 @@ const EmailAlertTemplte = props => {
                                         }}
                                         valign="top"
                                       >
-                                        Thanks for choosing <b>Skote</b>{" "}
+                                        Thanks for choosing <b>Nafeu</b>{" "}
                                         Admin.
                                       </td>
                                     </tr>
@@ -334,7 +334,7 @@ const EmailAlertTemplte = props => {
                                         }}
                                         valign="top"
                                       >
-                                        <b>Skote</b>
+                                        <b>Nafeu</b>
                                         <p>Support Team</p>
                                       </td>
                                     </tr>
@@ -362,7 +362,7 @@ const EmailAlertTemplte = props => {
                                         }}
                                         valign="top"
                                       >
-                                        © {new Date().getFullYear()} Skote
+                                        © {new Date().getFullYear()} Nafeu
                                       </td>
                                     </tr>
                                   </tbody>

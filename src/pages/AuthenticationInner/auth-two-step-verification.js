@@ -21,7 +21,7 @@ import logolight from "../../assets/images/logo-light.png"
 const TwostepVerification = () => {
 
   //meta title
-  document.title="Two Step Verification | Skote - React Admin & Dashboard Template";
+  document.title="Two Step Verification | Nafeu - React Admin & Dashboard Template";
 
   return (
     <React.Fragment>
@@ -122,7 +122,7 @@ const TwostepVerification = () => {
                   </a>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Skote. Crafted with{" "}
+                  © {new Date().getFullYear()} Nafeu. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger"></i> by Themesbrand
                 </p>
               </div>

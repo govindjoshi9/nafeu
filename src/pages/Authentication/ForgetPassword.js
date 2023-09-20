@@ -21,7 +21,7 @@ import logo from "../../assets/images/logo.svg";
 const ForgetPasswordPage = props => {
 
   //meta title
-  document.title="Forget Password | Skote - React Admin & Dashboard Template";
+  document.title="Forget Password | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
@@ -62,7 +62,7 @@ const ForgetPasswordPage = props => {
                     <Col xs={7}>
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to Skote.</p>
+                        <p>Sign in to continue to Nafeu.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
@@ -145,7 +145,7 @@ const ForgetPasswordPage = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Skote. Crafted with{" "}
+                  © {new Date().getFullYear()} Nafeu. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
                 </p>
               </div>

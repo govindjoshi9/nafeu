@@ -6,7 +6,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const EmailTemplateBilling = props => {
    //meta title
-   document.title="Billing Email | Skote - React Admin & Dashboard Template";
+   document.title="Billing Email | Nafeu - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">
@@ -28,7 +28,7 @@ const EmailTemplateBilling = props => {
                   backgroundColor: "transparent",
                   margin: "0",
                 }}
-                bgcolor="#f6f6f6"
+                // bgcolor="#f6f6f6"
               >
                 <tbody>
                   <tr
@@ -169,12 +169,12 @@ const EmailTemplateBilling = props => {
                                             textAlign: "center",
                                             margin: "40px 0 0",
                                           }}
-                                          align="center"
+                                          // align="center"
                                         >
                                           Thanks for using{" "}
                                           <b style={{ fontWeight: "600" }}>
                                             {" "}
-                                            SKOTE
+                                            Nafeu
                                           </b>
                                           .
                                         </h2>
@@ -582,7 +582,7 @@ const EmailTemplateBilling = props => {
                                         align="center"
                                         valign="top"
                                       >
-                                        Skote Inc. 2896 Howell Rd,
+                                        Nafeu Inc. 2896 Howell Rd,
                                         Russellville, AR, 72823
                                       </td>
                                     </tr>
@@ -610,7 +610,7 @@ const EmailTemplateBilling = props => {
                                         }}
                                         valign="top"
                                       >
-                                        © {new Date().getFullYear()} Skote
+                                        © {new Date().getFullYear()} Nafeu
                                       </td>
                                     </tr>
                                   </tbody>

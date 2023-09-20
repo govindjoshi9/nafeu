@@ -54,7 +54,7 @@ import { useSelector, useDispatch } from "react-redux";
 const EmailInbox = props => {
   
   //meta title
-  document.title="Inbox | Skote - React Admin & Dashboard Template";
+  document.title="Inbox | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
@@ -225,7 +225,7 @@ const EmailInbox = props => {
                       <img
                         className="d-flex me-3 rounded-circle"
                         src={avatar2}
-                        alt="skote"
+                        alt="Nafeu"
                         height="36"
                       />
                     </div>
@@ -239,7 +239,7 @@ const EmailInbox = props => {
                     <img
                       className="d-flex me-3 rounded-circle"
                       src={avatar3}
-                      alt="skote"
+                      alt="Nafeu"
                       height="36"
                     />
                     <div className="flex-grow-1 chat-user-box">
@@ -252,7 +252,7 @@ const EmailInbox = props => {
                     <img
                       className="d-flex me-3 rounded-circle"
                       src={avatar4}
-                      alt="skote"
+                      alt="Nafeu"
                       height="36"
                     />
                     <div className="flex-grow-1 chat-user-box">
@@ -265,7 +265,7 @@ const EmailInbox = props => {
                     <img
                       className="d-flex me-3 rounded-circle"
                       src={avatar6}
-                      alt="skote"
+                      alt="Nafeu"
                       height="36"
                     />
                     <div className="flex-grow-1 chat-user-box">

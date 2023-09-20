@@ -48,7 +48,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Chat = props => {
 
    //meta title
-   document.title="Chat | Skote - React Admin & Dashboard Template";
+   document.title="Chat | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
@@ -167,7 +167,7 @@ const Chat = props => {
       <div className="page-content">
         <Container fluid>
           {/* Render Breadcrumb */}
-          <Breadcrumbs title="Skote" breadcrumbItem="Chat" />
+          <Breadcrumbs title="Nafeu" breadcrumbItem="Chat" />
 
           <Row>
             <Col lg="12">

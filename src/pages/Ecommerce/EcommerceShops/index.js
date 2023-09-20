@@ -17,7 +17,7 @@ import { useSelector, useDispatch } from "react-redux";
 const EcommerceShops = () => {
 
   //meta title
-  document.title="Shops | Skote - React Admin & Dashboard Template";
+  document.title="Shops | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch()
 

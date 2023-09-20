@@ -9,7 +9,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 const ResponsiveTables = () => {
   //meta title
-  document.title = "Responsive Table | Skote - React Admin & Dashboard Template";
+  document.title = "Responsive Table | Nafeu - React Admin & Dashboard Template";
   return (
     <React.Fragment>
       <div className="page-content">

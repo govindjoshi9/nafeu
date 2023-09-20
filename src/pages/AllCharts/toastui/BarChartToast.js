@@ -45,7 +45,7 @@ const theme = {
     }
   }
 }
-TuiChart.registerTheme("skoteTheme", theme)
+TuiChart.registerTheme("NafeuTheme", theme)
 
 const BarChartToast = props => {
   const data = {

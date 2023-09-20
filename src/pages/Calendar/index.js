@@ -47,7 +47,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Calender = props => {
 
    //meta title
-   document.title="Calendar | Skote - React Admin & Dashboard Template";
+   document.title="Calendar | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
@@ -266,7 +266,7 @@ const Calender = props => {
       <div className="page-content">
         <Container fluid={true}>
           {/* Render Breadcrumb */}
-          <Breadcrumbs title="Skote" breadcrumbItem="Calendar" />
+          <Breadcrumbs title="Nafeu" breadcrumbItem="Calendar" />
           <Row>
             <Col className="col-12">
               <Card>

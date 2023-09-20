@@ -36,7 +36,7 @@ import { getCryptoOrders } from "store/crypto/actions";
 const CryptoOrders = props => {
   
   //meta title
-  document.title="Orders | Skote - React Admin & Dashboard Template";
+  document.title="Orders | Nafeu - React Admin & Dashboard Template";
 
   const { orders, onGetOrders } = props;
   const [activeTab, setActiveTab] = useState("1");

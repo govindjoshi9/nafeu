@@ -53,7 +53,7 @@ const IconBoxicons = props => {
   })
 
   //meta title
-  document.title = "Boxicons | Skote - React Admin & Dashboard Template";
+  document.title = "Boxicons | Nafeu - React Admin & Dashboard Template";
 
   return (
     <React.Fragment>

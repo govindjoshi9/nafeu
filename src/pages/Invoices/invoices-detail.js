@@ -16,7 +16,7 @@ import { useSelector, useDispatch } from "react-redux";
 const InvoiceDetail = props => {
 
    //meta title
-  document.title="Invoice Detail | Skote - React Admin & Dashboard Template";
+  document.title="Invoice Detail | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 

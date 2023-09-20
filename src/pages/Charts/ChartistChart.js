@@ -18,7 +18,7 @@ import "chartist/dist/scss/chartist.scss";
 import "../../assets/scss/chartist.scss";
 const ChartistChart = () => {
   //meta title
-  document.title = "Chartist Charts | Skote - React Admin & Dashboard Template"
+  document.title = "Chartist Charts | Nafeu - React Admin & Dashboard Template"
   return (
     <React.Fragment>
       <div className="page-content">

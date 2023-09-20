@@ -16,7 +16,7 @@ import { getInvoices as onGetInvoices } from "store/actions"
 
 const InvoicesList = props => {
    //meta title
-   document.title="Invoice List | Skote - React Admin & Dashboard Template";
+   document.title="Invoice List | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch()
 

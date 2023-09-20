@@ -22,7 +22,7 @@ import logo from "../../assets/images/logo.svg";
 const UiToast = () => {
 
     //meta title
-    document.title = "Toast | Skote - React Admin & Dashboard Template";
+    document.title = "Toast | Nafeu - React Admin & Dashboard Template";
 
     const [toast, setToast] = useState(false);
 

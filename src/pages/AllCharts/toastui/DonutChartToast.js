@@ -33,7 +33,7 @@ const theme = {
     }
   }
 }
-TuiChart.registerTheme("skoteTheme", theme)
+TuiChart.registerTheme("NafeuTheme", theme)
 
 const DonutChartToast = props => {
   const data = {

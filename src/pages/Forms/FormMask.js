@@ -18,7 +18,7 @@ import InputMask from "react-input-mask"
 
 const FormMask = () => {
   //meta title
-  document.title = "Form Mask | Skote - React Admin & Dashboard Template"
+  document.title = "Form Mask | Nafeu - React Admin & Dashboard Template"
 
   const ISBN1 = props => (
     <InputMask

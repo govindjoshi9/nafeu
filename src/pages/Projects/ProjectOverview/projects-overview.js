@@ -22,7 +22,7 @@ import { useSelector, useDispatch } from "react-redux";
 const ProjectsOverview = props => {
   
   //meta title
-  document.title="Project Overview | Skote - React Admin & Dashboard Template";
+  document.title="Project Overview | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 

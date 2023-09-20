@@ -26,7 +26,7 @@ const products = [
 const EditableTables = () => {
 
   //meta title
-  document.title="Editable Table | Skote - React Admin & Dashboard Template";
+  document.title="Editable Table | Nafeu - React Admin & Dashboard Template";
 
   const columns = useMemo(
     () => [

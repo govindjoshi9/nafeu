@@ -17,7 +17,7 @@ import { getUsers as onGetUsers } from "../../store/contacts/actions"
 const ContactsGrid = () => {
 
   //meta title
-  document.title="User Grid | Skote - React Admin & Dashboard Template";
+  document.title="User Grid | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch()
 

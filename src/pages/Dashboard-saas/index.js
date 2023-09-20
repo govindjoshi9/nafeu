@@ -43,7 +43,7 @@ const DashboardSaas = props => {
   ];
 
   //meta title
-  document.title="Saas Dashboard | Skote - React Admin & Dashboard Template";
+  document.title="Saas Dashboard | Nafeu - React Admin & Dashboard Template";
   
   return (
     <React.Fragment>

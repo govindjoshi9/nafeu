@@ -24,7 +24,7 @@ import { useSelector, useDispatch } from "react-redux";
 const ProjectsGrid = props => {
 
    //meta title
-  document.title="Projects Grid | Skote - React Admin & Dashboard Template";
+  document.title="Projects Grid | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 

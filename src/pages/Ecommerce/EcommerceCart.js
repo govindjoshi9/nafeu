@@ -83,7 +83,7 @@ const productListvar = [
 const EcommerceCart = () => {
 
   //meta title
-  document.title="Cart | Skote - React Admin & Dashboard Template";
+  document.title="Cart | Nafeu - React Admin & Dashboard Template";
 
   const [productList, setproductList] = useState(productListvar);
 

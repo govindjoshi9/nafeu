@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 const LockScreen = () => {
 
   //meta title
-  document.title="Lock Screen 2 | Skote - React Admin & Dashboard Template";
+  document.title="Lock Screen 2 | Nafeu - React Admin & Dashboard Template";
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -134,7 +134,7 @@ const LockScreen = () => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © 2021 Skote. Crafted with{" "}
+                  © 2021 Nafeu. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
                 </p>
               </div>

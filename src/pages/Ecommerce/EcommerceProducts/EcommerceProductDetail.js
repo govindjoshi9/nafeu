@@ -43,7 +43,7 @@ import { useSelector, useDispatch } from "react-redux"
 const EcommerceProductDetail = props => {
   
   //meta title
-  document.title="Product Details | Skote - React Admin & Dashboard Template";
+  document.title="Product Details | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch()
 

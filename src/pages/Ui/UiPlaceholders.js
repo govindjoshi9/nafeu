@@ -8,7 +8,7 @@ import smallImage from "../../assets/images/small/img-1.jpg";
 const UiPlaceholders = () => {
 
     //meta title
-    document.title = "Alerts | Skote - React Admin & Dashboard Template";
+    document.title = "Alerts | Nafeu - React Admin & Dashboard Template";
 
     return (
         <React.Fragment>

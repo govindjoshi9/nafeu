@@ -15,7 +15,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 function UiBreadcrumb(props) {
     //meta title
-  document.title = "Breadcrumb | Skote - React Admin & Dashboard Template";
+  document.title = "Breadcrumb | Nafeu - React Admin & Dashboard Template";
     return (
         <React.Fragment>
             <div className="page-content">

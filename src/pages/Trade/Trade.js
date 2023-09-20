@@ -70,7 +70,7 @@ const Trade = props => {
   // }
 
   //meta title
-  document.title = "Form Layouts | Skote - React Admin & Dashboard Template"
+  document.title = "Form Layouts | Nafeu - React Admin & Dashboard Template"
 
   return (
     <React.Fragment>

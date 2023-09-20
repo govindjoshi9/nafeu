@@ -190,7 +190,9 @@ import BoosterLevelBonus from "pages/Bonus/BoosterLevelBonus";
 import AutoPool from "pages/Bonus/AutoPool";
 
 ///Withdraw Pages 
-
+import Withdraw from "pages/Withdraw/Withdraw";
+import PoolWithdraw from "pages/Withdraw/PoolWithdraw";
+import WithdrawSummary from "pages/Withdraw/WithdrawSummary";
 
 const authProtectedRoutes = [
   { path: "/dashboard", component: Dashboard },
@@ -216,6 +218,11 @@ const authProtectedRoutes = [
   { path: "/BoosterBonus", component: BoosterBonus },
   { path: "/BoosterLevel", component: BoosterLevelBonus },
   { path: "/AutoPool", component: AutoPool },
+
+  //withdraw
+  { path: "/withdraw", component: Withdraw },
+  { path: "/Poolwithdraw", component: PoolWithdraw },
+  { path: "/withdrawhistory", component: WithdrawSummary },
 
   //Crypto
   { path: "/crypto-wallet", component: CryptoWallet },

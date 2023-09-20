@@ -38,7 +38,7 @@ const PagesTimeline = () => {
   ];
 
   //meta title
-  document.title = "Timeline | Skote - React Admin & Dashboard Template";
+  document.title = "Timeline | Nafeu - React Admin & Dashboard Template";
 
   return (
     <React.Fragment>

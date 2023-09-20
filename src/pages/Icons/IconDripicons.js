@@ -8,7 +8,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 const IconDripicons = () => {
   
    //meta title
-   document.title = "Dripicons | Skote - React Admin & Dashboard Template";
+   document.title = "Dripicons | Nafeu - React Admin & Dashboard Template";
 
   return (
     <React.Fragment>

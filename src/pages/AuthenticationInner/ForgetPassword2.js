@@ -13,7 +13,7 @@ import CarouselPage from "./CarouselPage";
 const ForgetPassword2 = () => {
 
   //meta title
-  document.title="Forget Password 2 | Skote - React Admin & Dashboard Template";
+  document.title="Forget Password 2 | Nafeu - React Admin & Dashboard Template";
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
@@ -59,7 +59,7 @@ const ForgetPassword2 = () => {
                     <div className="my-auto">
                       <div>
                         <h5 className="text-primary">Reset Password</h5>
-                        <p className="text-muted">Re-Password with Skote.
+                        <p className="text-muted">Re-Password with Nafeu.
                         </p>
                       </div>
 
@@ -121,7 +121,7 @@ const ForgetPassword2 = () => {
 
                     <div className="mt-4 mt-md-5 text-center">
                       <p className="mb-0">
-                        © {new Date().getFullYear()} Skote. Crafted with{" "}
+                        © {new Date().getFullYear()} Nafeu. Crafted with{" "}
                         <i className="mdi mdi-heart text-danger"></i> by
                         Themesbrand
                       </p>

@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 const TasksKanban = props => {
 
   //meta title
-  document.title="Kanban board | Skote - React Admin & Dashboard Template";
+  document.title="Kanban board | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 

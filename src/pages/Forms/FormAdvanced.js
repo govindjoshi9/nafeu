@@ -117,7 +117,7 @@ const optionGroup2 = [
 const FormAdvanced = () => {
 
    //meta title
-   document.title = "Form Advanced | Skote - React Admin & Dashboard Template"
+   document.title = "Form Advanced | Nafeu - React Admin & Dashboard Template"
 
   const [sq1, setsq1] = useState(false);
   const [sq2, setsq2] = useState(false);
@@ -1186,7 +1186,7 @@ const FormAdvanced = () => {
                             <input
                               type="checkbox"
                               id="square-switch1"
-                              switch="none"
+                              // switch="none"
                               checked={sq1}
                               onChange={() => {
                                 setsq1(!sq1);
@@ -1202,7 +1202,7 @@ const FormAdvanced = () => {
                             <input
                               type="checkbox"
                               id="square-switch2"
-                              switch="info"
+                              // switch="info"
                               checked={sq2}
                               onChange={() => {
                                 setsq2(!sq2);
@@ -1218,7 +1218,7 @@ const FormAdvanced = () => {
                             <input
                               type="checkbox"
                               id="square-switch3"
-                              switch="bool"
+                              // switch="bool"
                               checked={sq3}
                               onChange={() => {
                                 setsq3(!sq3);

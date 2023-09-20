@@ -19,7 +19,7 @@ import Breadcrumbs from "../../components/Common/Breadcrumb";
 const CryptoLending = props => {
 
   //meta title
-  document.title="Lending | Skote - React Admin & Dashboard Template";
+  document.title="Lending | Nafeu - React Admin & Dashboard Template";
 
   const [assets] = useState([
     {

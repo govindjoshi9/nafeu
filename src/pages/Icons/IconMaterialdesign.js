@@ -23469,7 +23469,7 @@ const IconMaterialdesign = props => {
   })
 
    //meta title
-   document.title = "Material Design | Skote - React Admin & Dashboard Template";
+   document.title = "Material Design | Nafeu - React Admin & Dashboard Template";
 
   return (
     <React.Fragment>

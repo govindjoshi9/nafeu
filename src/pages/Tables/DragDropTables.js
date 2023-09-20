@@ -76,7 +76,7 @@ const DragDropTables = () => {
     };
 
     //meta title
-    document.title = "Drag & Drop Tables | Skote - React Admin & Dashboard Template";
+    document.title = "Drag & Drop Tables | Nafeu - React Admin & Dashboard Template";
 
     return (
         <React.Fragment>

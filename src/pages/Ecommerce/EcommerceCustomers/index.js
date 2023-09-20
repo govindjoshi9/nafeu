@@ -49,7 +49,7 @@ import {
 const EcommerceCustomers = props => {
   
   //meta title
-  document.title="Customers | Skote - React Admin & Dashboard Template";
+  document.title="Customers | Nafeu - React Admin & Dashboard Template";
 
   const dispatch = useDispatch();
 
