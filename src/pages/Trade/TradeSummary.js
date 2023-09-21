@@ -99,12 +99,12 @@ function TradeSummary() {
   ]
 
   //meta title
-  document.title = "Team Summary | Stellar"
+  document.title = "Trade Summary "
 
   return (
     <div className="page-content">
       <div className="container-fluid">
-        <Breadcrumbs title="Summary" breadcrumbItem="Minting Summary" />
+        <Breadcrumbs title="Summary" breadcrumbItem="Trade Summary" />
         {/* <Table columns={columns} data={data} /> */}
         <TableContainer
           columns={columns}

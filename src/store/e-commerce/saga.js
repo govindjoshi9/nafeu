@@ -76,7 +76,7 @@ import {
   onLikeReply as onLikeReplyApi,
   onAddReply as onAddReplyApi,
   onAddComment as onAddCommentApi,
-} from "helpers/fakebackend_helper";
+} from "helpers/helper";
 
 function* fetchProducts() {
   try {

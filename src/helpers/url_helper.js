@@ -1,7 +1,7 @@
 const BASE_URL = "https://backend.stelarx.co/api"
 
 //REGISTER
-export const POST_FAKE_REGISTER = BASE_URL+"/auth/register";
+export const POST_FAKE_REGISTER = BASE_URL + "/auth/register"
 
 //LOGIN
 export const POST_FAKE_LOGIN = BASE_URL+"/auth/login";

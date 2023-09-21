@@ -56,7 +56,7 @@ const fakeBackend = () => {
   // This sets the mock adapter on the default instance
   const mock = new MockAdapter(axios, { onNoMatch: "passthrough" });
 
-  mock.onPost(url.POST_FAKE_REGISTER).reply(config => {
+  mock.onPost("/auth/register").reply(config => {
     const user = JSON.parse(config["data"]);
     users.push(user);
     return new Promise((resolve, reject) => {

@@ -14,10 +14,6 @@ import {
   ModalFooter,
   Table,
 } from "reactstrap";
-import { Link } from "react-router-dom";
-
-import classNames from "classnames";
-
 //import Charts
 import StackedColumnChart from "./StackedColumnChart";
 
@@ -30,16 +26,14 @@ import modalimage2 from "../../assets/images/product/img-4.png";
 // Pages Components
 import WelcomeComp from "./WelcomeComp";
 import MonthlyEarning from "./MonthlyEarning";
-import SocialSource from "./SocialSource";
-import ActivityComp from "./ActivityComp";
-import TopCities from "./TopCities";
-import LatestTranaction from "./LatestTranaction";
+
 
 //Import Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb";
 
 //i18n
 import { withTranslation } from "react-i18next";
+import { getDashboardFunction } from "../../helpers/AuthType/user"
 
 //redux
 import { useSelector, useDispatch } from "react-redux";
@@ -47,67 +41,84 @@ import { useSelector, useDispatch } from "react-redux";
 const Dashboard = props => {
   const [modal, setmodal] = useState(false);
   const [subscribemodal, setSubscribemodal] = useState(false);
-
+  const [apidata, setApiData] = useState(null);
   const { chartsData } = useSelector(state => ({
     chartsData: state.Dashboard.chartsData
   }));
 
+useEffect(() => {
+  async function fetchData() {
+    try {
+      const response = await getDashboardFunction()
+      console.log("API response:", response.user) // Log the API response
+      setApiData(response.user)
+      // setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data from the API:", error) // Log any errors
+      // setLoading(false);
+    }
+  }
+
+  fetchData()
+}, [])
+  
+  
   const reports = [
     { title: "My Package", iconClass: "bx-copy-alt", description: "1,235" },
     {
       title: "My Downline",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: apidata?.global_roi,
     },
     {
       title: "Total Active",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: apidata?.total_earning,
     },
     {
       title: "Total Inactive",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "$",
     },
     {
       title: "Total Direct",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "",
     },
     {
       title: "Total Team",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "5",
     },
     {
       title: "Current Pool",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "$3",
     },
     {
       title: "Current level",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "",
     },
     {
       title: "Divident Bonus",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "$6",
     },
     {
       title: "Direct Bonus",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "$6",
     },
     {
       title: "Booster Bonus",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "$9",
     },
     {
       title: "Booster Level Bonus",
       iconClass: "bx-archive-in",
-      description: "$35, 723",
+      description: "$6",
     },
     {
       title: "Level Bonus",

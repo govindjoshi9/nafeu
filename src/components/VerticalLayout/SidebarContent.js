@@ -93,22 +93,31 @@ const SidebarContent = props => {
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
             <li className="menu-title">{props.t("Menu")} </li>
-
             <li>
               <Link to="/dashboard">
                 <i className="bx bx-home-circle"></i>
 
                 <span>{props.t("Dashboards")}</span>
               </Link>
-              <Link to="/profile">
-                <i className="bx bxs-user"></i>
-
-                <span>{props.t("My Profile")}</span>
-              </Link>
             </li>
+            <li className="menu-title">My Profile</li>
 
+            <li>
+              <Link to="/#" className="">
+                <i className="mdi mdi-account"></i>
+                <span>{props.t("Profile")}</span>
+              </Link>
+
+              <ul className="sub-menu">
+                <li>
+                  <Link to="/profile">{props.t("View Profile")}</Link>
+                </li>
+                <li>
+                  <Link to="/editProfile">{props.t("Edit Profile")}</Link>
+                </li>
+              </ul>
+            </li>
             <li className="menu-title">Trade</li>
-
             <li>
               <Link to="/#">
                 <i className="bx bxs-user-detail"></i>
@@ -123,9 +132,7 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
-
             <li className="menu-title">My Team</li>
-
             <li>
               <Link to="/#">
                 <i className="fas fa-money-check-alt"></i>
@@ -143,9 +150,7 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
-
             <li className="menu-title">Bonus</li>
-
             <li>
               <Link to="/#">
                 <i className="fas fa-layer-group"></i>
@@ -182,9 +187,7 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
-
             <li className="menu-title">WITHDRAW</li>
-
             <li>
               <Link to="/#">
                 <i className="fas fa-layer-group"></i>
@@ -205,7 +208,6 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
-
             {/* <li>
               <Link to="/#" className="has-arrow ">
                 <i className="bx bx-bitcoin"></i>

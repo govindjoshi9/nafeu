@@ -28,7 +28,7 @@ import {
   getContacts,
   getMessages,
   addMessage,
-} from "../../helpers/fakebackend_helper";
+} from "../../helpers/helper";
 
 function* onGetChats() {
   try {

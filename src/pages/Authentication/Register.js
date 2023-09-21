@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import {
   Row,
   Col,
@@ -10,9 +11,11 @@ import {
   Label,
   Form,
   FormFeedback,
+  FormGroup,
 } from "reactstrap"
-import Select from "react-select"
-import country from "./country"
+
+import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap"
+
 // Formik Validation
 import * as Yup from "yup"
 import { useFormik } from "formik"
@@ -20,50 +23,83 @@ import { useFormik } from "formik"
 // action
 import { registerUser, apiError } from "../../store/actions"
 
+import { getSponcerName } from "helpers/AuthType/user"
 //redux
 import { useSelector, useDispatch } from "react-redux"
 
 import { Link } from "react-router-dom"
 
 // import images
-import profileImg from "../../assets/images/profile-img.png"
+import profileImg from "../../assets/images/laptop-img.png"
 import logoImg from "../../assets/images/logo.svg"
 
 const Register = props => {
   //meta title
-  document.title = "Register | Nafeu - React Admin & Dashboard Template"
+  document.title = "Register |  - "
+
+  const [isSuccessModalVisible, setSuccessModalVisible] = useState(false)
+  const [isAgreed, setIsAgreed] = useState(false)
+  const [termsError, setTermsError] = useState("")
+  const [sponcerId, setsponcerId] = useState("")
+
+  // const location = useLocation()
+
+  // useEffect(() => {
+  //   const getQueryParam = name => {
+  //     const params = new URLSearchParams(location.search)
+  //     return params.get(name)
+  //   }
+
+  //   const referralParam = getQueryParam("ref")
+
+  //   if (referralParam === null) {
+  //     window.location.href = "/login"
+  //     alert("No Referral code Available ")
+  //   }
+
+  //   if (referralParam) {
+  //     setsponcerId(referralParam)
+  //     validation.setFieldValue("sponcerid", referralParam)
+  //   }
+  // }, [location])
 
   const dispatch = useDispatch()
-  const [selectedCountry, setSelectedCountry] = useState(null)
+
   const validation = useFormik({
     enableReinitialize: true,
+
     initialValues: {
       email: "",
       username: "",
       password: "",
-      cpassword: "",
-      country: country[0].label,
+      sponcerid: "",
+      sponseName: "",
+      countryCode: "",
       contactNumber: "",
-      SponcerID: "", // Add SponcerID field
+      cpassword: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().required("Please Enter Your Email"),
       username: Yup.string().required("Please Enter Your Username"),
       password: Yup.string().required("Please Enter Your Password"),
+      sponcerid: Yup.string().required("Please Enter Sponsor ID"),
+      sponseName: Yup.string().required("Please Enter Sponse Name"),
+      countryCode: Yup.string().required("Please Enter Country Code"),
+      contactNumber: Yup.string().required("Please Enter Contact Number"),
       cpassword: Yup.string()
-        .required("Please Confirm Your Password")
+        .required("Please Enter Confirm Password")
         .oneOf([Yup.ref("password"), null], "Passwords must match"),
-      contactNumber: Yup.number()
-        .required("Please Enter Your Contact Number")
-        .integer("Contact Number must be an integer"),
-      SponcerID: Yup.number() // Add validation for SponcerID
-        .required("Please Enter Your SponcerID")
-        .integer("SponcerID must be an integer"),
     }),
-
     onSubmit: values => {
-      console.log("on register user ")
-      dispatch(registerUser(values))
+      if (isAgreed) {
+        console.log("called submit")
+        // Reset the terms error if the user has agreed
+        setTermsError("")
+        dispatch(registerUser(values))
+      } else {
+        // Display an error message
+        setTermsError("You must agree to the terms before registering.")
+      }
     },
   })
 
@@ -72,11 +108,27 @@ const Register = props => {
     registrationError: state.Account.registrationError,
     loading: state.Account.loading,
   }))
-  console.log("user", user)
 
   useEffect(() => {
     dispatch(apiError(""))
   }, [])
+
+  useEffect(() => {
+    if (user?.status === true) {
+      setSuccessModalVisible(true)
+    }
+  }, [user])
+
+  useEffect(() => {
+    fetchName()
+  }, [sponcerId])
+
+  async function fetchName() {
+    if (sponcerId !== "") {
+      const name = await getSponcerName(sponcerId)
+      validation.setFieldValue("sponseName", name)
+    }
+  }
 
   return (
     <React.Fragment>
@@ -94,8 +146,8 @@ const Register = props => {
                   <Row>
                     <Col className="col-7">
                       <div className="text-primary p-4">
-                        <h5 className="text-primary">Free Register</h5>
-                        <p>Get your free Nafeu account now.</p>
+                        <h3>Welcome</h3>
+                        <p>Please Sign up and Continue.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
@@ -124,7 +176,7 @@ const Register = props => {
                       onSubmit={e => {
                         e.preventDefault()
                         validation.handleSubmit()
-                        console.log("submit")
+                        // console.log(submit)
                         return false
                       }}
                     >
@@ -139,26 +191,57 @@ const Register = props => {
                       ) : null}
 
                       <div className="mb-3">
-                        <Label className="form-label">SponcerID</Label>
+                        <Label className="form-label">Sponsor ID</Label>
                         <Input
-                          id="SponcerID"
-                          name="SponcerID"
-                          className="form-control"
-                          placeholder="Enter Sponcer ID"
-                          type="SponcerID"
+                          name="sponcerid"
+                          type="text"
+                          // disabled
+                          placeholder="Enter Sponsor ID"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.SponcerID || ""}
+                          value={validation.values.sponcerid || ""}
                           invalid={
-                            validation.touched.SponcerID &&
-                            validation.errors.SponcerID
+                            validation.touched.sponcerid &&
+                            validation.errors.sponcerid
                               ? true
                               : false
                           }
                         />
+                        {validation.touched.sponcerid &&
+                        validation.errors.sponcerid ? (
+                          <FormFeedback type="invalid">
+                            {validation.errors.sponcerid}
+                          </FormFeedback>
+                        ) : null}
                       </div>
+
                       <div className="mb-3">
-                        <Label className="form-label">Full Name</Label>
+                        <Label className="form-label">Sponsor Name</Label>
+                        <Input
+                          name="sponseName"
+                          type="text"
+                          // disabled
+                          placeholder="Enter Sponsor Name"
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation.values.sponseName || ""}
+                          invalid={
+                            validation.touched.sponseName &&
+                            validation.errors.sponseName
+                              ? true
+                              : false
+                          }
+                        />
+                        {validation.touched.sponseName &&
+                        validation.errors.sponseName ? (
+                          <FormFeedback type="invalid">
+                            {validation.errors.sponseName}
+                          </FormFeedback>
+                        ) : null}
+                      </div>
+
+                      <div className="mb-3">
+                        <Label className="form-label">Username</Label>
                         <Input
                           name="username"
                           type="text"
@@ -180,6 +263,7 @@ const Register = props => {
                           </FormFeedback>
                         ) : null}
                       </div>
+
                       <div className="mb-3">
                         <Label className="form-label">Email</Label>
                         <Input
@@ -203,39 +287,56 @@ const Register = props => {
                           </FormFeedback>
                         ) : null}
                       </div>
-                      <div className="mb-3">
-                        <Label className="form-label">Country Code</Label>
-                        <Select
-                          options={country.map(country => ({
-                            value: country.label,
-                            label: `${country.label} (+${country.phone})`,
-                          }))}
-                          value={selectedCountry}
-                          onChange={selectedOption =>
-                            setSelectedCountry(selectedOption)
-                          } // Update this line
-                          placeholder="Select Country Code"
-                        />
-                      </div>
 
                       <div className="mb-3">
                         <Label className="form-label">Contact Number</Label>
-                        <Input
-                          id="contactNumber"
-                          name="contactNumber"
-                          className="form-control"
-                          placeholder="Enter Contact Number"
-                          type="contactNumber"
-                          onChange={validation.handleChange}
-                          onBlur={validation.handleBlur}
-                          value={validation.values.contactNumber || ""}
-                          invalid={
-                            validation.touched.contactNumber &&
-                            validation.errors.contactNumber
-                              ? true
-                              : false
-                          }
-                        />
+                        <div className="d-flex">
+                          <div style={{ flex: 1, marginRight: 2 }}>
+                            <Input
+                              name="countryCode"
+                              type="text"
+                              placeholder="+1"
+                              onChange={validation.handleChange}
+                              onBlur={validation.handleBlur}
+                              value={validation.values.countryCode || ""}
+                              invalid={
+                                validation.touched.countryCode &&
+                                validation.errors.countryCode
+                                  ? true
+                                  : false
+                              }
+                            />
+                            {validation.touched.countryCode &&
+                            validation.errors.countryCode ? (
+                              <FormFeedback type="invalid">
+                                {validation.errors.countryCode}
+                              </FormFeedback>
+                            ) : null}
+                          </div>
+
+                          <div style={{ flex: 5 }}>
+                            <Input
+                              name="contactNumber"
+                              type="text"
+                              placeholder="1234567890"
+                              onChange={validation.handleChange}
+                              onBlur={validation.handleBlur}
+                              value={validation.values.contactNumber || ""}
+                              invalid={
+                                validation.touched.contactNumber &&
+                                validation.errors.contactNumber
+                                  ? true
+                                  : false
+                              }
+                            />
+                            {validation.touched.contactNumber &&
+                            validation.errors.contactNumber ? (
+                              <FormFeedback type="invalid">
+                                {validation.errors.contactNumber}
+                              </FormFeedback>
+                            ) : null}
+                          </div>
+                        </div>
                       </div>
 
                       <div className="mb-3">
@@ -265,8 +366,8 @@ const Register = props => {
                         <Label className="form-label">Confirm Password</Label>
                         <Input
                           name="cpassword"
-                          type="cpassword"
-                          placeholder="Enter confirm Password"
+                          type="password"
+                          placeholder="Enter Confirm Password"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
                           value={validation.values.cpassword || ""}
@@ -285,6 +386,28 @@ const Register = props => {
                         ) : null}
                       </div>
 
+                      
+
+                      <div className="mb-3">
+                        <FormGroup check>
+                          <Label check>
+                            <Input
+                              type="checkbox"
+                              id="agreeCheckbox"
+                              checked={isAgreed}
+                              onChange={() => setIsAgreed(!isAgreed)}
+                            />{" "}
+                            By registering you agree to the Nafeu{" "}
+                            <Link to="#" className="text-primary">
+                              Terms of Use
+                            </Link>
+                          </Label>
+                        </FormGroup>
+                        {termsError && (
+                          <div className="text-danger">{termsError}</div>
+                        )}
+                      </div>
+
                       <div className="mt-4">
                         <button
                           className="btn btn-primary btn-block "
@@ -292,15 +415,6 @@ const Register = props => {
                         >
                           Register
                         </button>
-                      </div>
-
-                      <div className="mt-4 text-center">
-                        <p className="mb-0">
-                          By registering you agree to the Nafeu{" "}
-                          <Link to="#" className="text-primary">
-                            Terms of Use
-                          </Link>
-                        </p>
                       </div>
                     </Form>
                   </div>
@@ -315,14 +429,35 @@ const Register = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Nafeu. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Themesbrand
+                  © {new Date().getFullYear()} Skote. Crafted with{" "}
+                  <i className="mdi mdi-heart text-danger" /> by Nafeu
                 </p>
               </div>
             </Col>
           </Row>
         </Container>
       </div>
+      <Modal
+        isOpen={isSuccessModalVisible}
+        toggle={() => setSuccessModalVisible(!isSuccessModalVisible)}
+      >
+        <ModalHeader>Registration Successful</ModalHeader>
+        <ModalBody>
+          <p>Your user ID is: {user?.userId}</p>
+        </ModalBody>
+        <ModalFooter>
+          <a href="/login">
+            <button className="btn btn-primary">Login Now </button>
+          </a>
+
+          <button
+            className="btn btn-primary"
+            onClick={() => setSuccessModalVisible(false)}
+          >
+            Close
+          </button>
+        </ModalFooter>
+      </Modal>
     </React.Fragment>
   )
 }

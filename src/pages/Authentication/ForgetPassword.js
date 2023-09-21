@@ -1,49 +1,60 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { Row, Col, Alert, Card, CardBody, Container, FormFeedback, Input, Label, Form } from "reactstrap";
+import PropTypes from "prop-types"
+import React from "react"
+import {
+  Row,
+  Col,
+  Alert,
+  Card,
+  CardBody,
+  Container,
+  FormFeedback,
+  Input,
+  Label,
+  Form,
+} from "reactstrap"
 
 //redux
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux"
 
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom"
 
 // Formik Validation
-import * as Yup from "yup";
-import { useFormik } from "formik";
+import * as Yup from "yup"
+import { useFormik } from "formik"
 
 // action
-import { userForgetPassword } from "../../store/actions";
+import { userForgetPassword } from "../../store/actions"
 
 // import images
-import profile from "../../assets/images/profile-img.png";
-import logo from "../../assets/images/logo.svg";
+import profile from "../../assets/images/profile-img.png"
+import logo from "../../assets/images/logo.svg"
 
 const ForgetPasswordPage = props => {
-
   //meta title
-  document.title="Forget Password | Nafeu - React Admin & Dashboard Template";
+  document.title = "Forget Password |  -"
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const validation = useFormik({
     // enableReinitialize : use this flag when initial values needs to be changed
     enableReinitialize: true,
 
     initialValues: {
-      email: '',
+      userId: "",
     },
     validationSchema: Yup.object({
-      email: Yup.string().required("Please Enter Your Email"),
+      userId: Yup.string().required("Please Enter Your UserId"), // Change "email" to "userId"
     }),
-    onSubmit: (values) => {
-      dispatch(userForgetPassword(values, props.history));
-    }
-  });
+    onSubmit: values => {
+      console.log(values)
+      dispatch(userForgetPassword(values, props.history))
+    },
+  })
 
   const { forgetError, forgetSuccessMsg } = useSelector(state => ({
     forgetError: state.ForgetPassword.forgetError,
     forgetSuccessMsg: state.ForgetPassword.forgetSuccessMsg,
-  }));
+  }))
 
   return (
     <React.Fragment>
@@ -62,7 +73,7 @@ const ForgetPasswordPage = props => {
                     <Col xs={7}>
                       <div className="text-primary p-4">
                         <h5 className="text-primary">Welcome Back !</h5>
-                        <p>Sign in to continue to Nafeu.</p>
+                        <p>Sign in to continue to Skote.</p>
                       </div>
                     </Col>
                     <Col className="col-5 align-self-end">
@@ -99,30 +110,37 @@ const ForgetPasswordPage = props => {
 
                     <Form
                       className="form-horizontal"
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        validation.handleSubmit();
-                        return false;
+                      onSubmit={e => {
+                        e.preventDefault()
+                        validation.handleSubmit()
+                        return false
                       }}
                     >
                       <div className="mb-3">
-                        <Label className="form-label">Email</Label>
+                        <Label className="form-label">UserId</Label>
                         <Input
-                          name="email"
+                          name="userId"
                           className="form-control"
-                          placeholder="Enter email"
-                          type="email"
+                          placeholder="Enter UserId"
+                          type="Number"
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
-                          value={validation.values.email || ""}
+                          value={validation.values.userId || ""}
                           invalid={
-                            validation.touched.email && validation.errors.email ? true : false
+                            validation.touched.userId &&
+                            validation.errors.userId
+                              ? true
+                              : false
                           }
                         />
-                        {validation.touched.email && validation.errors.email ? (
-                          <FormFeedback type="invalid">{validation.errors.email}</FormFeedback>
+                        {validation.touched.userId &&
+                        validation.errors.userId ? (
+                          <FormFeedback type="invalid">
+                            {validation.errors.userId}
+                          </FormFeedback>
                         ) : null}
                       </div>
+
                       <Row className="mb-3">
                         <Col className="text-end">
                           <button
@@ -145,8 +163,8 @@ const ForgetPasswordPage = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Nafeu. Crafted with{" "}
-                  <i className="mdi mdi-heart text-danger" /> by Themesbrand
+                  © {new Date().getFullYear()} Skote. Crafted with{" "}
+                  <i className="mdi mdi-heart text-danger" /> by nefeu
                 </p>
               </div>
             </Col>
@@ -154,11 +172,11 @@ const ForgetPasswordPage = props => {
         </Container>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
 ForgetPasswordPage.propTypes = {
   history: PropTypes.object,
-};
+}
 
-export default withRouter(ForgetPasswordPage);
+export default withRouter(ForgetPasswordPage)

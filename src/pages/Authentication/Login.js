@@ -21,7 +21,7 @@ import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props
 import { loginUser, socialLogin } from "../../store/actions";
 
 // import images
-import profile from "assets/images/profile-img.png";
+import profile from "assets/images/laptop-img.png";
 import logo from "assets/images/logo.svg";
 
 //Import config
@@ -39,7 +39,7 @@ const Login = props => {
     enableReinitialize: true,
 
     initialValues: {
-      userId: "8497049" || "",
+      userId: "1137420" || "",
       password: "Check@123" || "",
     },
     validationSchema: Yup.object({

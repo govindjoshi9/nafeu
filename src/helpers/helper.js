@@ -46,8 +46,38 @@ const postFakeRegister = data => {
 };
 
 // Login Method
-const postFakeLogin = data => post(url.POST_FAKE_LOGIN, data);
-
+const postFakeLogin = data => {
+  return axios
+    .post(url.POST_FAKE_LOGIN, data)
+    .then(response => {
+      if (response.status >= 200 || response.status <= 299) return response.data
+      throw response.data
+    })
+    .catch(err => {
+      var message
+      if (err.response && err.response.status) {
+        switch (err.response.status) {
+          case 404:
+            message = "Sorry! the page you are looking for could not be found"
+            break
+          case 500:
+            message =
+              "Sorry! something went wrong, please contact our support team"
+            break
+          case 401:
+            message = "Invalid credentials"
+            break
+          case 503:
+            message = "Server Error Please Try after some time."
+            break
+          default:
+            message = err.response.data.message
+            break
+        }
+      }
+      throw message
+    })
+}
 // postForgetPwd
 const postFakeForgetPwd = data => post(url.POST_FAKE_PASSWORD_FORGET, data);
 
@@ -59,7 +89,7 @@ const postFakeProfile = data => post(url.POST_EDIT_PROFILE, data);
 // Register Method
 const postJwtRegister = (url, data) => {
   return axios
-    .post(url, data)
+    .post(url.POST_FAKE_REGISTER, data)
     .then(response => {
       if (response.status >= 200 || response.status <= 299) return response.data;
       throw response.data;
@@ -88,7 +118,38 @@ const postJwtRegister = (url, data) => {
 };
 
 // Login Method
-const postJwtLogin = data => post(url.POST_FAKE_JWT_LOGIN, data);
+const postJwtLogin = data => {
+  return axios
+    .post(url.POST_FAKE_JWT_LOGIN, data)
+    .then(response => {
+      if (response.status >= 200 || response.status <= 299) return response.data
+      throw response.data
+    })
+    .catch(err => {
+      var message
+      if (err.response && err.response.status) {
+        switch (err.response.status) {
+          case 404:
+            message = "Sorry! the page you are looking for could not be found"
+            break
+          case 500:
+            message =
+              "Sorry! something went wrong, please contact our support team"
+            break
+          case 401:
+            message = "Invalid credentials"
+            break
+          case 503:
+            message = "Server Error Please Try after some time."
+            break
+          default:
+            message = err.response.data.message
+            break
+        }
+      }
+      throw message
+    })
+}
 
 // postForgetPwd
 const postJwtForgetPwd = data => post(url.POST_FAKE_JWT_PASSWORD_FORGET, data);

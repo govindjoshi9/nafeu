@@ -5,39 +5,21 @@ import { REGISTER_USER } from "./actionTypes"
 import { registerUserSuccessful, registerUserFailed } from "./actions"
 
 //Include Both Helper File with needed methods
-import { getFirebaseBackend } from "../../../helpers/firebase_helper"
-import {
-  postFakeRegister,
-  postJwtRegister,
-} from "../../../helpers/fakebackend_helper"
+import { postJwtRegister } from "../../../helpers/helper"
 
-// initialize relavant method of both Auth
-const fireBaseBackend = getFirebaseBackend()
-
-// Is user register successfull then direct plot user in redux.
 function* registerUser({ payload: { user } }) {
   console.log("using the following url for registration: ")
   try {
-    console.log("Trying to register user (within try block)")
-    if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-      const response = yield call(
-        fireBaseBackend.registerUser,
-        user.email,
-        user.password,
-        user.username,
-        user.cPassword,
-        user.SponcerID,
-        user.country,
-        user.contact
-      )
-      yield put(registerUserSuccessful(response))
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
-      const response = yield call(postJwtRegister, "/auth/register", user)
-      yield put(registerUserSuccessful(response))
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      const response = yield call(postFakeRegister, user)
-      yield put(registerUserSuccessful(response))
-    }
+    const response = yield call(postJwtRegister, {
+      sponcerid: user.sponcerid,
+      contactNumber: user.contactNumber,
+      countryCode: user.country,
+      password: user.password,
+      cpassword: user.cpassword,
+      member_name: user.username,
+      email: user.email,
+    })
+    yield put(registerUserSuccessful(response))
   } catch (error) {
     console.log("There was an error registering: ", error)
     yield put(registerUserFailed(error))

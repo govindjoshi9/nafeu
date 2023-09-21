@@ -76,13 +76,13 @@ const Trade = props => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid={true}>
-          <Breadcrumbs title="Minting" breadcrumbItem="Minting" />
+          <Breadcrumbs title="Trade" breadcrumbItem="Trade" />
 
           <Row>
             <Col lg={10}>
               <Card>
                 <CardBody>
-                  <CardTitle className="mb-4">Minting </CardTitle>
+                  <CardTitle className="mb-4">Trade </CardTitle>
 
                   <Form>
                     <div className="row mb-4">
@@ -96,35 +96,6 @@ const Trade = props => {
                           placeholder="Enter Usdt Value"
                           value={usdQty}
                           onChange={event => setusdQty(event.target.value)}
-                        />
-                      </Col>
-                    </div>
-                    <div className="row mb-4">
-                      <Label className="col-sm-3 col-form-label">
-                        Current Price
-                      </Label>
-                      <Col sm={9}>
-                        <Input
-                          type="text"
-                          readOnly
-                          className="form-control"
-                          placeholder="Current Price"
-                          value={getApiValue.price}
-                        />
-                      </Col>
-                    </div>
-
-                    <div className="row mb-4">
-                      <Label className="col-sm-3 col-form-label">
-                        tokenQty
-                      </Label>
-                      <Col sm={9}>
-                        <Input
-                          type="text"
-                          className="form-control"
-                          placeholder="Amount"
-                          value={tokenQty}
-                          onChange={event => settokenQty(event.target.value)}
                         />
                       </Col>
                     </div>
